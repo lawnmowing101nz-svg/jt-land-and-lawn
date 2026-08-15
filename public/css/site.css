@@ -556,6 +556,7 @@ p { margin: 0 0 1.1em; }
 .field input:focus, .field textarea:focus {
   outline: none; border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(22, 102, 60, .16);
 }
+.char-counter { font-size: .78rem; color: var(--muted); text-align: right; margin-top: 4px; }
 .form-note { font-size: .86rem; color: var(--muted); margin: 14px 0 0; }
 .form-error {
   display: none; margin: 0 0 16px; padding: 12px 15px; border-radius: 8px;

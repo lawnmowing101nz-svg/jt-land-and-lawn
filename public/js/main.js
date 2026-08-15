@@ -104,6 +104,20 @@
 
   Array.prototype.forEach.call(document.querySelectorAll("form[data-quote-form]"), wireForm);
 
+  /* ------------------------------------- character counter on message fields */
+  Array.prototype.forEach.call(document.querySelectorAll("textarea[maxlength]"), function (textarea) {
+    var max = textarea.getAttribute("maxlength");
+    var counter = document.createElement("div");
+    counter.className = "char-counter";
+    counter.setAttribute("aria-live", "polite");
+    function updateCounter() {
+      counter.textContent = textarea.value.length + "/" + max;
+    }
+    updateCounter();
+    textarea.addEventListener("input", updateCounter);
+    textarea.insertAdjacentElement("afterend", counter);
+  });
+
   /* ------------------------------------------- google reviews widget */
   var grTrack = document.querySelector(".gr-track");
   if (grTrack) {
