@@ -3,8 +3,6 @@
   "use strict";
 
   var FORMSPARK_ID = "1xhV61ru1";
-  var BOTPOISON_KEY = "pk_dce1f627-b0cc-4b2f-85b0-f7a005c0f354";
-  var botpoison = (typeof Botpoison !== "undefined") ? new Botpoison({ publicKey: BOTPOISON_KEY }) : null;
 
   var PHONE = "(682) 294-3447";
 
@@ -127,8 +125,7 @@
 
       if (button) { button.disabled = true; button.textContent = "Sending…"; }
 
-      (botpoison ? botpoison.challenge() : Promise.resolve(null)).then(function (result) {
-        if (result && result.solution) body.append("_botpoison", result.solution);
+      Promise.resolve().then(function () {
         return fetch("https://submit-form.com/" + FORMSPARK_ID, {
           method: "POST",
           headers: {
